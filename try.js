@@ -5,17 +5,23 @@ while (!maxNo) {
 let targetNo = Math.floor(Math.random() * maxNo) + 1;
 console.log(targetNo);
 
-let guess = parseInt(prompt("Enter your guess"));
+let guess = prompt("Enter your guess");
 let count = 0;
 
 while (parseInt(guess) != targetNo) {
-    count++;
+
     if (guess == 'q') break;
+    guess = parseInt(guess);
     if (guess > targetNo) {
         guess = (prompt("High, Go lower"));
+        count++
+    }
+    else if (guess < targetNo) {
+        guess = (prompt("Too low, go high"));
+        count++
     }
     else {
-        guess = (prompt("Too low, go high"));
+        guess = prompt("INVALID GUESS, write a valid number or press 'q' to quit!!")
     }
 }
 
